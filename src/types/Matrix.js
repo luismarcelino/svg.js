@@ -69,9 +69,8 @@ export default class Matrix {
     // If we want the origin at a particular place, we force it there
     if (isFinite(t.px) || isFinite(t.py)) {
       const origin = new Point(ox, oy).transform(transformer)
-      // TODO: Replace t.px with isFinite(t.px)
-      const dx = t.px ? t.px - origin.x : 0
-      const dy = t.py ? t.py - origin.y : 0
+      const dx = isFinite(t.px) ? t.px - origin.x : 0
+      const dy = isFinite(t.py) ? t.py - origin.y : 0
       transformer.translateO(dx, dy)
     }
 
