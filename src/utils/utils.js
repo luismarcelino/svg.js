@@ -95,7 +95,10 @@ export function getOrigin (o, element) {
     // Set the bounds eg : "bottom-left", "Top right", "middle" etc...
     ox = o.ox != null ? o.ox : bx
     oy = o.oy != null ? o.oy : by
-  } else {
+  } else if (origin.x && origin.y) {
+    ox = origin.x
+    oy = origin.y
+  }else {
     ox = origin[0]
     oy = origin[1]
   }
